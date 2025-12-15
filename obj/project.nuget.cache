@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Moxfa2Xg4HQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Administrador\\Desktop\\Projeto JC Games\\Projeto JC Games.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.10\\microsoft.aspnetcore.openapi.9.0.10.nupkg.sha512",
+    "C:\\Users\\Administrador\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
