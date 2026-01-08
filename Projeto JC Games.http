@@ -1,6 +1,0 @@
-@Projeto_JC_Games_HostAddress = http://localhost:5128
-
-GET {{Projeto_JC_Games_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

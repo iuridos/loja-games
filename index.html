@@ -4,106 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JC Games - Loja Gamer</title>
+
+  <meta name="description" content="JC Games - Loja gamer com os melhores jogos, lançamentos e promoções imperdíveis.">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Cabeçalho -->
-  <header>
-    <div class="brand">
-      <img src="imagens/logo.png" alt="JC Games">
-      <h1 class="logo-text">
-        <span class="logo-main">JC</span> 
-        <span class="logo-sub">Games</span>
-      </h1>
-    </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="jogos.html">Jogos</a>
-      <a href="#promo">Promoções</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <div class="acoes">
-      <button id="btnLogin">Acessar minha Conta</button>
-      <button id="btnLogin">Cadastre aqui</button>
-      <button id="btnCarrinho">🛒 <span id="badge">0</span></button>
-    </div>
-  </header>
 
-  <!-- Trailer FC 26 -->
-  <section id="trailer-fc26" class="trailer-fc26">
-    <div class="player">
-      <video id="fc26Video" controls autoplay loop>
-        <source src="video/fc26.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    <img src="imagens/logo.png" alt="Logo da JC Games">
+    <h1 class="logo-text">
+      <span class="logo-main">JC</span>
+      <span class="logo-sub">Games</span>
+    </h1>
+  </div>
 
-  <!-- Destaque FC 26 -->
-  <section class="destaque-fc video">
-    <div class="conteudo">
-      <h2>⚽ EA Sports FC 26</h2>
-      <p>O lançamento mais esperado da temporada chegou! Dispute com seus times favoritos e sinta a nova geração do futebol.</p>
-      <p class="preco">R$ 369,90</p>
-      <button class="comprar">Comprar Agora</button>
-    </div>
-  </section>
+  <nav class="menu">
+    <a href="index.html">Início</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="promocoes.html">Promoções</a>
+    <a href="https://wa.me/553891265886?text=Olá!%20Vim%20pelo%20site%20JC%20Games%20e%20gostaria%20de%20mais%20informações."
+       target="_blank" rel="noopener">
+      Contato
+    </a>
+  </nav>
 
-  <!-- Lista de jogos -->
-  <section id="jogos" class="grid">
-    <h2>Catálogo de Jogos</h2>
+  <div class="acoes">
+    <button id="btnCarrinho">🛒 <span id="badge">0</span></button>
+  </div>
+</header>
 
-    <div class="card">
-      <img src="imagens/Cyberpunk 2077.jpeg" alt="Cyberpunk 2077">
-      <h3>Cyberpunk 2077</h3>
-      <p class="preco">R$ 149,90</p>
-      <button class="comprar">Comprar</button>
-    </div>
+<!-- TRAILER -->
+<section id="trailer-fc26" class="trailer-fc26">
+  <div class="player">
+    <video id="fc26Video" controls muted>
+      <source src="video/fc26.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="imagens/God of War Ragnarok.jpeg" alt="God of War Ragnarok">
-      <h3>God of War Ragnarok</h3>
-      <p class="preco">R$ 199,90</p>
-      <button class="comprar">Comprar</button>
-    </div>
+<!-- DESTAQUE -->
+<section class="destaque-fc">
+  <div class="conteudo">
+    <h2>⚽ EA Sports FC 26</h2>
+    <p>O lançamento mais esperado da temporada chegou. Viva a nova geração do futebol.</p>
+    <p class="preco">R$ 369,90</p>
+    <button class="comprar">Comprar Agora</button>
+  </div>
+</section>
 
-    <div class="card">
-      <img src="imagens/The Witcher 3.jpeg" alt="The Witcher 3">
-      <h3>The Witcher 3</h3>
-      <p class="preco">R$ 249,90</p>
-      <button class="comprar">Comprar</button>
-    </div>
-  </section>
+<!-- CATÁLOGO -->
+<section id="jogos" class="grid">
+  <h2>Catálogo de Jogos</h2>
 
-  <!-- Promoção -->
-  <section id="promo" class="promo">
-    <h2>🔥 Promoção da Semana: até 50% OFF</h2>
-    <button class="btn">Aproveitar</button>
-  </section>
+  <div class="card">
+    <img src="imagens/Cyberpunk 2077.jpeg" alt="Cyberpunk 2077">
+    <h3>Cyberpunk 2077</h3>
+    <p class="preco">R$ 149,90</p>
+    <button class="comprar">Comprar</button>
+  </div>
 
-  <!-- Painel do carrinho lateral -->
-  <aside id="carrinho">
-    <button id="fecharCarrinho">✖</button>
-    <h2>🛒 Seu Carrinho</h2>
-    <ul id="lista-carrinho"></ul>
-    <p>Total: R$ <span id="total">0,00</span></p>
-    <button id="finalizar">Finalizar Compra</button>
-  </aside>
+  <div class="card">
+    <img src="imagens/God of War Ragnarok.jpeg" alt="God of War Ragnarok">
+    <h3>God of War Ragnarok</h3>
+    <p class="preco">R$ 199,90</p>
+    <button class="comprar">Comprar</button>
+  </div>
 
-  <!-- Rodapé -->
-  <footer>
-    <p>© 2025 JC Games. Todos os direitos reservados.</p>
-  </footer>
+  <div class="card">
+    <img src="imagens/The Witcher 3.jpeg" alt="The Witcher 3">
+    <h3>The Witcher 3</h3>
+    <p class="preco">R$ 249,90</p>
+    <button class="comprar">Comprar</button>
+  </div>
+</section>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
-  <script>
-    // Quando o vídeo termina, rola para o catálogo
-    const video = document.getElementById('fc26Video');
+<!-- PROMO -->
+<section id="promo" class="promo">
+  <h2>🔥 Promoção da Semana</h2>
+  <button class="btn">Ver Promoções</button>
+</section>
 
-    video.addEventListener('ended', () => {
-      document.getElementById("jogos").scrollIntoView({ behavior: "smooth" });
-    });
-  </script>
+<!-- CARRINHO -->
+<aside id="carrinho">
+  <button id="fecharCarrinho">✖</button>
+  <h2>🛒 Seu Carrinho</h2>
+  <ul id="lista-carrinho"></ul>
+  <p>Total: R$ <span id="total">0,00</span></p>
+  <button id="finalizar">Finalizar Compra</button>
+</aside>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 JC Games — Loja gamer online</p>
+  <p>Atendimento via WhatsApp</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  const video = document.getElementById('fc26Video');
+  video.addEventListener('ended', () => {
+    document.getElementById("jogos").scrollIntoView({ behavior: "smooth" });
+  });
+</script>
+
 </body>
 </html>

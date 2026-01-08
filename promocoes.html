@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promoções - JC Games</title>
+  <meta name="description" content="Aproveite as melhores promoções de jogos na JC Games. Descontos imperdíveis por tempo limitado.">
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    <img src="imagens/logo.png" alt="JC Games">
+    <h1 class="logo-text">
+      <span class="logo-main">JC</span>
+      <span class="logo-sub">Games</span>
+    </h1>
+  </div>
+
+  <nav class="menu">
+    <a href="index.html">Início</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="promocoes.html" aria-current="page">Promoções</a>
+    <a href="https://wa.me/553891265886?text=Olá!%20Vim%20pelo%20site%20JC%20Games%20e%20gostaria%20de%20mais%20informações."
+       target="_blank" rel="noopener">
+      Contato
+    </a>
+  </nav>
+
+  <div class="acoes">
+    <button id="btnCarrinho">🛒 <span id="badge">0</span></button>
+  </div>
+</header>
+
+<!-- CONTEÚDO -->
+<main>
+  <section class="grid">
+    <h2>🔥 Promoções Imperdíveis</h2>
+
+    <div class="card promo-card">
+      <span class="desconto">-50%</span>
+      <img src="imagens/Cyberpunk 2077.jpeg" alt="Cyberpunk 2077">
+      <h3>Cyberpunk 2077</h3>
+      <p class="preco antigo">R$ 299,90</p>
+      <p class="preco">R$ 149,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="card promo-card">
+      <span class="desconto">-40%</span>
+      <img src="imagens/God of War Ragnarok.jpeg" alt="God of War Ragnarok">
+      <h3>God of War Ragnarok</h3>
+      <p class="preco antigo">R$ 329,90</p>
+      <p class="preco">R$ 199,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="card promo-card">
+      <span class="desconto">-30%</span>
+      <img src="imagens/The Witcher 3.jpeg" alt="The Witcher 3">
+      <h3>The Witcher 3</h3>
+      <p class="preco antigo">R$ 349,90</p>
+      <p class="preco">R$ 249,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+  </section>
+</main>
+
+<!-- CARRINHO -->
+<aside id="carrinho">
+  <button id="fecharCarrinho">✖</button>
+  <h2>🛒 Seu Carrinho</h2>
+  <ul id="lista-carrinho"></ul>
+  <p>Total: R$ <span id="total">0,00</span></p>
+  <button id="finalizar">Finalizar Compra</button>
+</aside>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 JC Games — Loja gamer online</p>
+  <p>Atendimento via WhatsApp</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

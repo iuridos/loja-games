@@ -4,126 +4,221 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JC Games - Jogos</title>
-  <meta name="description" content="Compre os melhores jogos para PlayStation, Xbox e PC na JC Games. Lançamentos, promoções e clássicos imperdíveis.">
+  <meta name="description" content="Compre jogos para PS4 e PS5 na JC Games. Lançamentos, promoções e clássicos imperdíveis.">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Cabeçalho -->
-  <header>
-    <div class="brand">
-      <img src="imagens/logo.png" alt="Logotipo da JC Games">
-      <h1 class="logo-text">
-        <span class="logo-main">JC</span> 
-        <span class="logo-sub">Games</span>
-      </h1>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    <img src="imagens/logo.png" alt="Logotipo da JC Games">
+    <h1 class="logo-text">
+      <span class="logo-main">JC</span>
+      <span class="logo-sub">Games</span>
+    </h1>
+  </div>
+
+  <nav class="menu">
+    <a href="index.html">Início</a>
+    <a href="jogos.html" aria-current="page">Jogos</a>
+    <a href="promocoes.html">Promoções</a>
+    <a href="https://wa.me/553891265886?text=Olá!%20Vim%20pelo%20site%20JC%20Games%20e%20gostaria%20de%20mais%20informações."
+       target="_blank" rel="noopener">
+      Contato
+    </a>
+  </nav>
+
+  <div class="acoes">
+    <button id="btnCarrinho">🛒 <span id="badge">0</span></button>
+  </div>
+</header>
+
+<!-- CONTEÚDO -->
+<main>
+  <section id="jogos" class="grid">
+    <h2>Catálogo de Jogos</h2>
+
+    <!-- CARD COM ESCOLHA DE PLATAFORMA -->
+
+    <div class="card">
+      <img src="imagens/Cyberpunk 2077.jpeg" alt="Cyberpunk 2077">
+      <h3>Cyberpunk 2077</h3>
+
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
+
+      <p class="preco">R$ 149,90</p>
+      <button class="comprar">Comprar</button>
     </div>
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="jogos.html" aria-current="page">Jogos</a>
-      <a href="index.html#promo">Promoções</a>
-      <a href="index.html#contato">Contato</a>
-    </nav>
-    <div class="acoes">
-      <button id="btnLogin">Entrar</button>
-      <!-- Carrinho com badge -->
-      <button id="btnCarrinho" aria-label="Abrir carrinho de compras">
-        🛒 <span id="badge">0</span>
-      </button>
+
+    <div class="card">
+      <img src="imagens/God of War Ragnarok.jpeg" alt="God of War Ragnarok">
+      <h3>God of War Ragnarok</h3>
+
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
+
+      <p class="preco">R$ 199,90</p>
+      <button class="comprar">Comprar</button>
     </div>
-  </header>
 
-  <!-- Conteúdo principal -->
-  <main>
-    <section id="jogos" class="grid">
-      <h2>Catálogo de Jogos</h2>
+    <div class="card">
+      <img src="imagens/The Witcher 3.jpeg" alt="The Witcher 3">
+      <h3>The Witcher 3</h3>
 
-      <div class="card">
-        <img src="imagens/Cyberpunk 2077.jpeg" alt="Capa do jogo Cyberpunk 2077">
-        <h3>Cyberpunk 2077</h3>
-        <p class="preco">R$ 149,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
 
-      <div class="card">
-        <img src="imagens/God of War Ragnarok.jpeg" alt="Capa do jogo God of War Ragnarok">
-        <h3>God of War Ragnarok</h3>
-        <p class="preco">R$ 199,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+      <p class="preco">R$ 249,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
 
-      <div class="card">
-        <img src="imagens/The Witcher 3.jpeg" alt="Capa do jogo The Witcher 3">
-        <h3>The Witcher 3</h3>
-        <p class="preco">R$ 249,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+    <div class="card">
+      <img src="imagens/Elden Ring.jpeg" alt="Elden Ring">
+      <h3>Elden Ring</h3>
 
-      <div class="card">
-        <img src="imagens/Elden Ring.jpeg" alt="Elden Ring">
-        <h3>Elden Ring</h3>
-        <p class="preco">R$ 299,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
 
-      <div class="card">
-        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202112/0212/EldenRing.jpg" alt="Capa do jogo Elden Ring">
-        <h3>Elden Ring</h3>
-        <p class="preco">R$ 279,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+      <p class="preco">R$ 299,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
 
-      <div class="card">
-        <img src="https://image.api.playstation.com/cdn/EP1004/CUSA00411_00/FREE_CONTENTuJfXjP8mH1N2LRnJ2rP/full.jpg" alt="Capa do jogo GTA V">
-        <h3>GTA V</h3>
-        <p class="preco">R$ 129,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+    <div class="card">
+      <img src="imagens/call of Duty.jpeg" alt="Call of Duty Black Ops 7">
+      <h3>Call of Duty: Black Ops 7</h3>
 
-      <div class="card">
-        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0420/fc25.jpg" alt="Capa do jogo EA Sports FC 25">
-        <h3>EA Sports FC 25</h3>
-        <p class="preco">R$ 349,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
 
-      <div class="card">
-        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/3005/Minecraft.jpg" alt="Capa do jogo Minecraft">
-        <h3>Minecraft</h3>
-        <p class="preco">R$ 99,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+      <p class="preco">R$ 279,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
 
-      <div class="card">
-        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/2923/RedDead2.jpg" alt="Capa do jogo Red Dead Redemption 2">
-        <h3>Red Dead Redemption 2</h3>
-        <p class="preco">R$ 199,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
+    <div class="card">
+      <img src="imagens/gta.jpeg" alt="GTA V">
+      <h3>GTA V</h3>
 
-      <div class="card">
-        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/0817/HogwartsLegacy.jpg" alt="Capa do jogo Hogwarts Legacy">
-        <h3>Hogwarts Legacy</h3>
-        <p class="preco">R$ 229,90</p>
-        <button class="comprar">Comprar</button>
-      </div>
-    </section>
-  </main>
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
 
-  <!-- Painel do carrinho lateral -->
-  <aside id="carrinho" aria-label="Carrinho de compras">
-    <button id="fecharCarrinho">✖</button>
-    <h2>🛒 Seu Carrinho</h2>
-    <ul id="lista-carrinho"></ul>
-    <p>Total: R$ <span id="total">0,00</span></p>
-    <button id="finalizar">Finalizar Compra</button>
-  </aside>
+      <p class="preco">R$ 129,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
 
-  <!-- Rodapé -->
-  <footer>
-    <p>© 2025 JC Games. Todos os direitos reservados.</p>
-  </footer>
+    <div class="card">
+      <img src="imagens/fc26.jpeg" alt="EA Sports FC 26">
+      <h3>EA Sports FC 26</h3>
 
-  <script src="script.js"></script>
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
+
+      <p class="preco">R$ 349,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="imagens/minecraft.jpeg" alt="Minecraft">
+      <h3>Minecraft</h3>
+
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
+
+      <p class="preco">R$ 99,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="imagens/redDeadRedemption2.jpeg" alt="Red Dead Redemption 2">
+      <h3>Red Dead Redemption 2</h3>
+
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
+
+      <p class="preco">R$ 199,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="imagens/hogwarts Legacy.jpeg" alt="Hogwarts Legacy">
+      <h3>Hogwarts Legacy</h3>
+
+      <select class="plataforma-select">
+        <option value="">Escolha a plataforma</option>
+        <option value="PS4">PS4</option>
+        <option value="PS5">PS5</option>
+      </select>
+
+      <p class="preco">R$ 229,90</p>
+      <button class="comprar">Comprar</button>
+    </div>
+
+  </section>
+</main>
+
+<!-- CARRINHO -->
+<aside id="carrinho">
+  <button id="fecharCarrinho">✖</button>
+  <h2>🛒 Seu Carrinho</h2>
+  <ul id="lista-carrinho"></ul>
+  <p>Total: R$ <span id="total">0,00</span></p>
+  <button id="finalizar">Finalizar Compra</button>
+</aside>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 JC Games — Loja gamer online</p>
+  <p>Atendimento via WhatsApp</p>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- JS OBRIGATÓRIO: exigir escolha da plataforma -->
+<script>
+  document.querySelectorAll(".comprar").forEach(botao => {
+    botao.addEventListener("click", e => {
+      const card = e.target.closest(".card");
+      const select = card.querySelector(".plataforma-select");
+
+      if (select && select.value === "") {
+        alert("Selecione a plataforma (PS4 ou PS5)");
+        return;
+      }
+
+      // segue fluxo normal do carrinho
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -1,26 +1,23 @@
-// ===== CARRINHO =====  
+// ===== CARRINHO =====
 let carrinho = [];
+
 const listaCarrinho = document.getElementById("lista-carrinho");
 const totalElemento = document.getElementById("total");
 const finalizarBtn = document.getElementById("finalizar");
 const btnCarrinho = document.getElementById("btnCarrinho");
 const carrinhoPanel = document.getElementById("carrinho");
-
-// novos elementos
 const fecharCarrinho = document.getElementById("fecharCarrinho");
 const badge = document.getElementById("badge");
 
-// Mostrar/ocultar carrinho lateral
+// Abrir / fechar carrinho
 btnCarrinho?.addEventListener("click", () => {
   carrinhoPanel.classList.toggle("ativo");
 });
 
-// Fechar carrinho pelo botão ✖
 fecharCarrinho?.addEventListener("click", () => {
   carrinhoPanel.classList.remove("ativo");
 });
 
-// Fechar carrinho com tecla ESC
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") carrinhoPanel.classList.remove("ativo");
 });
@@ -68,28 +65,26 @@ function atualizarCarrinho() {
     qtdTotal += item.qtd;
 
     const li = document.createElement("li");
+
     const texto = document.createElement("span");
     texto.textContent = `${item.nome} - R$ ${formatPreco(item.preco * item.qtd)}`;
 
     const controles = document.createElement("div");
-    controles.style.display = "flex";
-    controles.style.alignItems = "center";
-    controles.style.gap = "5px";
 
     const btnMenos = document.createElement("button");
     btnMenos.textContent = "−";
-    btnMenos.addEventListener("click", () => diminuirQtd(index));
+    btnMenos.onclick = () => diminuirQtd(index);
 
     const qtdSpan = document.createElement("span");
     qtdSpan.textContent = item.qtd;
 
     const btnMais = document.createElement("button");
     btnMais.textContent = "+";
-    btnMais.addEventListener("click", () => aumentarQtd(index));
+    btnMais.onclick = () => aumentarQtd(index);
 
     const btnRemover = document.createElement("button");
     btnRemover.textContent = "❌";
-    btnRemover.addEventListener("click", () => removerItem(index));
+    btnRemover.onclick = () => removerItem(index);
 
     controles.append(btnMenos, qtdSpan, btnMais, btnRemover);
     li.append(texto, controles);
@@ -98,31 +93,26 @@ function atualizarCarrinho() {
 
   totalElemento.textContent = formatPreco(total);
   if (badge) badge.textContent = qtdTotal;
+
   salvarCarrinho();
 }
 
-// Aumentar quantidade
 function aumentarQtd(index) {
   carrinho[index].qtd++;
-  salvarCarrinho();
   atualizarCarrinho();
 }
 
-// Diminuir quantidade
 function diminuirQtd(index) {
   if (carrinho[index].qtd > 1) {
     carrinho[index].qtd--;
   } else {
     carrinho.splice(index, 1);
   }
-  salvarCarrinho();
   atualizarCarrinho();
 }
 
-// Remover item
 function removerItem(index) {
   carrinho.splice(index, 1);
-  salvarCarrinho();
   atualizarCarrinho();
 }
 
@@ -130,15 +120,16 @@ function removerItem(index) {
 finalizarBtn?.addEventListener("click", () => {
   if (carrinho.length === 0) {
     mostrarMensagem("⚠ Seu carrinho está vazio!");
-  } else {
-    mostrarMensagem("✅ Compra finalizada com sucesso!");
-    carrinho = [];
-    salvarCarrinho();
-    atualizarCarrinho();
+    return;
   }
+
+  mostrarMensagem("✅ Compra finalizada com sucesso!");
+  carrinho = [];
+  salvarCarrinho();
+  atualizarCarrinho();
 });
 
-// Funções auxiliares
+// Utilidades
 function parsePreco(texto) {
   return parseFloat(texto.replace("R$", "").replace(",", ".")) || 0;
 }
@@ -154,6 +145,7 @@ function salvarCarrinho() {
 function mostrarMensagem(texto) {
   const msg = document.createElement("div");
   msg.textContent = texto;
+
   Object.assign(msg.style, {
     position: "fixed",
     bottom: "20px",
@@ -167,41 +159,38 @@ function mostrarMensagem(texto) {
     boxShadow: "0 0 10px #e0ffff",
     fontFamily: "Orbitron, sans-serif"
   });
+
   document.body.appendChild(msg);
   setTimeout(() => msg.remove(), 2000);
 }
 
-// ===== TRAILER FC 26 (com autoplay e som nas próximas visitas) =====
+// ===== TRAILER FC 26 =====
 let player;
 
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('fc26Video', {
-    events: { 'onReady': onPlayerReady }
+  player = new YT.Player("fc26Video", {
+    events: { onReady: onPlayerReady }
   });
 }
 
 function onPlayerReady(event) {
-  const jaVisitou = localStorage.getItem('jaVisitou');
+  const jaVisitou = localStorage.getItem("jaVisitou");
 
   if (!jaVisitou) {
-    // Cria botão de ativar som (só na 1ª visita)
-    const btnSom = document.createElement('button');
-    btnSom.textContent = '🔊 Ativar som';
-    btnSom.id = 'btnSom';
+    const btnSom = document.createElement("button");
+    btnSom.id = "btnSom";
+    btnSom.textContent = "🔊 Ativar som";
     document.body.appendChild(btnSom);
 
-    btnSom.addEventListener('click', () => {
+    btnSom.onclick = () => {
       event.target.unMute();
-      localStorage.setItem('jaVisitou', 'true');
+      localStorage.setItem("jaVisitou", "true");
       btnSom.remove();
-    });
-  }
+    };
 
-  // comportamento do vídeo
-  if (jaVisitou) {
-    event.target.unMute();
-  } else {
     event.target.mute();
+  } else {
+    event.target.unMute();
   }
 
   event.target.playVideo();

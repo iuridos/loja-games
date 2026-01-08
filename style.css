@@ -453,3 +453,32 @@ footer {
   background: var(--neon);
   transform: scale(1.05);
 }
+/* ==== Seletor de Plataforma (PS4 / PS5) ==== */
+.plataforma-select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+
+  background: #0e0e0e;
+  color: #fff;
+
+  border: 1px solid #333;
+  border-radius: 8px;
+
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.plataforma-select:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 8px rgba(224, 255, 255, 0.4);
+}
+
+.plataforma-select:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 12px rgba(0, 207, 255, 0.6);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Minha Conta - JC Games</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <h1 class="logo-text">
+      <span class="logo-main">JC</span>
+      <span class="logo-sub">Games</span>
+    </h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="jogos.html">Jogos</a>
+  </nav>
+
+  <div class="acoes" id="areaUsuario"></div>
+</header>
+
+<main class="conta-container">
+  <h2>👤 Minha Conta</h2>
+
+  <div class="conta-box">
+    <p><strong>Nome:</strong> <span id="nomeUsuario"></span></p>
+    <p><strong>Email:</strong> <span id="emailUsuario"></span></p>
+  </div>
+
+  <div class="conta-box">
+    <h3>🛒 Resumo do Carrinho</h3>
+    <ul id="resumoCarrinho"></ul>
+    <p><strong>Total:</strong> R$ <span id="totalCarrinho">0,00</span></p>
+  </div>
+
+  <button onclick="logout()" class="btn-sair">Sair da Conta</button>
+</main>
+
+<script src="script.js"></script>
+<script src="auth.js"></script>
+<script src="minha-conta.js"></script>
+
+</body>
+</html>
