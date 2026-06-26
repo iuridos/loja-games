@@ -1,9 +1,9 @@
 :root { 
-  --bg: #0a0a0a;
-  --text: #e0e0e0;
+  --bg: #0D0D0D;
+  --text: #FFFFFF;
   --red: #8B0000;
-  --blue: #00CFFF;
-  --neon: #e0ffff; /* branco gelo */
+  --blue: #8A2BE2;
+  --neon: #A06BFF;
 }
 
 /* ==== Reset e corpo ==== */
@@ -19,7 +19,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111;
+  background: linear-gradient(180deg, #121212, #0D0D0D);
   padding: 10px 20px;
   position: sticky;
   top: 0;
@@ -45,27 +45,32 @@ text-transform: uppercase;
 }
 
 .logo-main {
-  color: #d9d9d9;
-  text-shadow: 2px 2px 0 #8B0000, -2px -2px 0 #8B0000, 3px 3px 6px #000;
-  -webkit-text-stroke: 2px #00CFFF;
+  color: #2e0261;
+  text-shadow: 2px 2px 0 #a866f3, -2px -2px 0 #a866f3, 3px 3px 6px #000;
+  -webkit-text-stroke: 2px #a866f3;
   margin-right: 5px;
 }
 
 .logo-sub {
-  color: #ffffff;
-  text-shadow: 2px 2px 0 #8B0000, -2px -2px 0 #8B0000, 3px 3px 6px #000;
-  -webkit-text-stroke: 2px #00CFFF;
+  color: #2e0261;
+  text-shadow: 2px 2px 0 #a866f3, -2px -2px 0 #a866f3, 3px 3px 6px #000;
+  -webkit-text-stroke: 2px #a866f3;
 }
 
 header nav a {
   margin: 0 10px;
   text-decoration: none;
   color: var(--text);
+  padding: 6px 10px;
+  border-radius: 999px;
   transition: 0.3s;
 }
 
-header nav a:hover {
+header nav a:hover,
+header nav a[aria-current="page"] {
   color: var(--neon);
+  background: rgba(138, 43, 226, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(138, 43, 226, 0.25);
   text-shadow: 0 0 5px var(--neon), 0 0 15px var(--neon);
 }
 
@@ -122,14 +127,14 @@ header .acoes button:hover {
 .hero {
   text-align: center;
   padding: 50px 20px;
-  background: linear-gradient(180deg, #111, #000);
+  background: linear-gradient(180deg, #141414, #0D0D0D);
   color: var(--neon);
   text-shadow: 0 0 10px var(--neon);
 }
 
 /* ==== Botões ==== */
 button, .btn, .comprar {
-  background-color: var(--blue);
+  background: linear-gradient(90deg, #8A2BE2, #00E5FF);
   color: #000;
   border: none;
   padding: 12px 20px;
@@ -209,7 +214,7 @@ button:hover, .btn:hover, .comprar:hover {
 
 /* ==== Botão Comprar ==== */
 .comprar {
-  background: var(--blue);
+  background: linear-gradient(90deg, #8A2BE2, #00E5FF);
   color: #000;
   border: none;
   padding: 10px 15px;
@@ -239,7 +244,7 @@ button:hover, .btn:hover, .comprar:hover {
 footer {
   text-align: center;
   padding: 20px;
-  background: #111;
+  background: #0D0D0D;
   font-size: 14px;
   color: var(--neon);
   text-shadow: 0 0 5px var(--neon);
@@ -363,11 +368,142 @@ footer {
   background: var(--neon);
 }
 
+/* ==== Autenticação ==== */
+.auth-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1f1630, var(--bg));
+  color: var(--text);
+}
+
+.auth-header {
+  padding: 24px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.brand-link {
+  text-decoration: none;
+}
+
+.auth-nav {
+  justify-content: center;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 20px 40px;
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  background: rgba(17, 17, 17, 0.95);
+  border: 1px solid rgba(138, 43, 226, 0.35);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 0 24px rgba(138, 43, 226, 0.25);
+}
+
+.auth-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.auth-subtitle {
+  margin: 0 0 20px;
+  color: #c9b6f5;
+  font-size: 0.95rem;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card input {
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: var(--text);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.auth-card button {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 10px;
+  color: #bca8eb;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+
+.google-auth-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.auth-link {
+  text-align: center;
+  margin: 10px 0 0;
+  color: #d9c7ff;
+}
+
+.auth-link a {
+  color: #00E5FF;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
 /* ==== Responsividade ==== */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     padding: 20px;
+  }
+
+  header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .menu {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  header nav a {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .auth-card {
+    padding: 22px;
   }
 }
 
@@ -377,8 +513,8 @@ footer {
     padding: 10px;
   }
 
-  header nav {
-    display: none;
+  .menu {
+    justify-content: center;
   }
 }
 
@@ -482,3 +618,256 @@ footer {
   border-color: var(--blue);
   box-shadow: 0 0 12px rgba(0, 207, 255, 0.6);
 }
+
+/* ==== Página de Conta ==== */
+.conta-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.conta-container h2 {
+  text-align: center;
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.conta-box {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(138, 43, 226, 0.35);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px rgba(138, 43, 226, 0.15);
+}
+
+.conta-box h3 {
+  color: var(--neon);
+  margin-top: 0;
+  text-shadow: 0 0 5px var(--neon);
+}
+
+.conta-box p {
+  color: var(--text);
+  margin: 10px 0;
+}
+
+.conta-box strong {
+  color: var(--blue);
+}
+
+#resumoCarrinho {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#resumoCarrinho li {
+  padding: 8px;
+  margin: 5px 0;
+  background: rgba(138, 43, 226, 0.1);
+  border-left: 3px solid var(--neon);
+  border-radius: 4px;
+  color: var(--text);
+}
+
+.conta-acoes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn-logout {
+  background: linear-gradient(90deg, #8B0000, #DC143C);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.btn-logout:hover {
+  background: linear-gradient(90deg, #DC143C, #FF6347);
+  box-shadow: 0 0 15px rgba(220, 20, 60, 0.8);
+  transform: scale(1.05);
+}
+
+.btn-logout:active {
+  transform: scale(0.98);
+}
+
+/* ==== Página de Checkout ==== */
+.checkout-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.checkout-container h2 {
+  text-align: center;
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.checkout-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.pedido-resumo,
+.forma-pagamento {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(138, 43, 226, 0.35);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 12px rgba(138, 43, 226, 0.15);
+}
+
+.pedido-resumo h3,
+.forma-pagamento h3,
+.forma-pagamento h4 {
+  color: var(--neon);
+  margin-top: 0;
+  text-shadow: 0 0 5px var(--neon);
+}
+
+#listaPedido {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+#listaPedido li {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  background: rgba(138, 43, 226, 0.1);
+  border-left: 3px solid var(--neon);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.total-pedido {
+  padding: 15px;
+  background: linear-gradient(90deg, #8A2BE2, #00E5FF);
+  border-radius: 8px;
+  text-align: center;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.forma-pagamento form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.forma-pagamento input {
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: var(--text);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.forma-pagamento input:focus {
+  outline: none;
+  border-color: var(--neon);
+  box-shadow: 0 0 8px rgba(160, 107, 255, 0.5);
+}
+
+.forma-pagamento input:disabled {
+  background: #2a2a2a;
+  color: #999;
+}
+
+#card-element {
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  background: #1e1e1e;
+}
+
+#card-errors {
+  color: #DC143C;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.aviso-teste {
+  background: rgba(255, 193, 7, 0.15);
+  border-left: 4px solid #FFC107;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 15px 0;
+}
+
+.aviso-teste p {
+  margin: 5px 0;
+  color: #FFC107;
+  font-size: 0.9rem;
+}
+
+.btn-pagar {
+  background: linear-gradient(90deg, #8A2BE2, #00E5FF);
+  color: #000;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.btn-pagar:hover {
+  background: var(--neon);
+  box-shadow: 0 0 15px var(--neon);
+  transform: scale(1.05);
+}
+
+.link-voltar {
+  text-align: center;
+  color: var(--neon);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+  display: block;
+}
+
+.link-voltar:hover {
+  background: rgba(138, 43, 226, 0.2);
+  color: #00E5FF;
+}
+
+@media (max-width: 768px) {
+  .checkout-content {
+    grid-template-columns: 1fr;
+  }
+
+  #listaPedido li {
+    grid-template-columns: 1fr;
+    font-size: 0.85rem;
+  }
+}
+
+

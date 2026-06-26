@@ -2,22 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Minha Conta - JC Games</title>
+  <title>Minha Conta - Iuridos Games</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="header">
   <div class="brand">
+    <img src="imagens/logo.png" alt="Logotipo da Iuridos Games">
     <h1 class="logo-text">
-      <span class="logo-main">JC</span>
+      <span class="logo-main">Iuridos</span>
       <span class="logo-sub">Games</span>
     </h1>
   </div>
 
-  <nav>
+  <nav class="menu">
     <a href="index.html">Início</a>
     <a href="jogos.html">Jogos</a>
+    <a href="promocoes.html">Promoções</a>
+    <a href="login.html">Login</a>
+    <a href="cadastro.html">Cadastro</a>
+    <a href="link do wpp" target="_blank" rel="noopener">Contato</a>
   </nav>
 
   <div class="acoes" id="areaUsuario"></div>
@@ -37,7 +42,9 @@
     <p><strong>Total:</strong> R$ <span id="totalCarrinho">0,00</span></p>
   </div>
 
-  <button onclick="logout()" class="btn-sair">Sair da Conta</button>
+  <div class="conta-acoes">
+    <button onclick="fazerLogout()" class="btn-logout">🚪 Sair da Conta</button>
+  </div>
 </main>
 
 <script src="script.js"></script>

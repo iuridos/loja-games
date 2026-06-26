@@ -1,4 +1,4 @@
-namespace JCGamesAPI.Models
+namespace IuridosGamesAPI.Models
 {
     public class Usuario
     {

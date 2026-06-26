@@ -56,6 +56,8 @@ document.querySelectorAll(".comprar").forEach(botao => {
 
 // Atualizar carrinho
 function atualizarCarrinho() {
+  if (!listaCarrinho) return;
+
   listaCarrinho.innerHTML = "";
   let total = 0;
   let qtdTotal = 0;
@@ -91,7 +93,7 @@ function atualizarCarrinho() {
     listaCarrinho.appendChild(li);
   });
 
-  totalElemento.textContent = formatPreco(total);
+  if (totalElemento) totalElemento.textContent = formatPreco(total);
   if (badge) badge.textContent = qtdTotal;
 
   salvarCarrinho();
@@ -117,16 +119,26 @@ function removerItem(index) {
 }
 
 // Finalizar compra
-finalizarBtn?.addEventListener("click", () => {
+finalizarBtn?.addEventListener("click", async () => {
   if (carrinho.length === 0) {
     mostrarMensagem("⚠ Seu carrinho está vazio!");
     return;
   }
 
-  mostrarMensagem("✅ Compra finalizada com sucesso!");
-  carrinho = [];
-  salvarCarrinho();
-  atualizarCarrinho();
+  const token = localStorage.getItem("authToken");
+  if (!token) {
+    mostrarMensagem("⚠ Faça login para finalizar a compra.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  // Redirecionar para página de checkout
+  window.location.href = "checkout.html";
+});
+    atualizarCarrinho();
+  } catch (error) {
+    mostrarMensagem("⚠ Não foi possível conectar ao servidor.");
+  }
 });
 
 // Utilidades
@@ -195,3 +207,41 @@ function onPlayerReady(event) {
 
   event.target.playVideo();
 }
+
+// ===== AUTENTICAÇÃO =====
+function verificarAutenticacao() {
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+  return usuarioLogado != null;
+}
+
+async function fazerLogout() {
+  const token = localStorage.getItem("authToken");
+  
+  if (!token) {
+    localStorage.removeItem("usuarioLogado");
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("carrinho");
+    window.location.href = "index.html";
+    return;
+  }
+
+  try {
+    await fetch("/api/logout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token })
+    });
+  } catch (error) {
+    console.error("Erro ao fazer logout:", error);
+  }
+
+  localStorage.removeItem("usuarioLogado");
+  localStorage.removeItem("authToken");
+  localStorage.removeItem("carrinho");
+  mostrarMensagem("✅ Você foi desconectado!");
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 1000);
+}
+
+window.fazerLogout = fazerLogout;

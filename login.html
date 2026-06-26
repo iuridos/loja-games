@@ -2,29 +2,52 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Login - JC Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Iuridos Games</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="auth-page">
+  <header class="auth-header">
+    <a href="index.html" class="brand-link">
+      <h1 class="logo-text">
+        <span class="logo-main">Iuridos</span>
+        <span class="logo-sub">Games</span>
+      </h1>
+    </a>
+    <nav class="menu auth-nav">
+      <a href="index.html">Início</a>
+      <a href="jogos.html">Jogos</a>
+      <a href="promocoes.html">Promoções</a>
+      <a href="login.html" aria-current="page">Login</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="link do wpp" target="_blank" rel="noopener">Contato</a>
+    </nav>
+  </header>
 
-<header>
-  <h1 class="logo-text">
-    <span class="logo-main">JC</span>
-    <span class="logo-sub">Games</span>
-  </h1>
-</header>
+  <main class="auth-container">
+    <div class="auth-card">
+      <h2>Entrar</h2>
+      <p class="auth-subtitle">Acesse sua conta para continuar comprando.</p>
 
-<main class="auth-container">
-  <h2>Entrar</h2>
+      <form onsubmit="event.preventDefault(); login();">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+      </form>
 
-  <input type="email" id="email" placeholder="Email">
-  <input type="password" id="senha" placeholder="Senha">
+      <div class="auth-divider">
+        <span>ou</span>
+      </div>
 
-  <button onclick="login()">Entrar</button>
+      <div class="google-auth-box">
+        <div id="google-signin-button"></div>
+      </div>
 
-  <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
-</main>
+      <p class="auth-link">Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+    </div>
+  </main>
 
-<script src="auth.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="auth.js"></script>
 </body>
 </html>

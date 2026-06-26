@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Iuridos Games</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img src="imagens/logo.png" alt="Logotipo da Iuridos Games">
+    <h1 class="logo-text">
+      <span class="logo-main">Iuridos</span>
+      <span class="logo-sub">Games</span>
+    </h1>
+  </div>
+
+  <nav class="menu">
+    <a href="index.html">Início</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="promocoes.html">Promoções</a>
+  </nav>
+</header>
+
+<main class="checkout-container">
+  <h2>💳 Finalizar Compra</h2>
+
+  <div class="checkout-content">
+    <!-- Resumo do pedido -->
+    <div class="pedido-resumo">
+      <h3>Resumo do Pedido</h3>
+      <ul id="listaPedido"></ul>
+      <div class="total-pedido">
+        <strong>Total: R$ <span id="totalPedido">0,00</span></strong>
+      </div>
+    </div>
+
+    <!-- Formulário de pagamento -->
+    <div class="forma-pagamento">
+      <h3>Dados de Pagamento</h3>
+      
+      <form id="formCheckout">
+        <!-- Informações do cliente -->
+        <h4>Informações Pessoais</h4>
+        <input type="text" id="nomeCliente" placeholder="Nome completo" required disabled>
+        <input type="email" id="emailCliente" placeholder="Email" required disabled>
+
+        <!-- Card do Stripe (em modo teste) -->
+        <h4>Método de Pagamento</h4>
+        <div id="card-element"></div>
+        <div id="card-errors" role="alert"></div>
+
+        <!-- Nota de modo teste -->
+        <div class="aviso-teste">
+          <p>🧪 <strong>Modo Teste</strong> - Nenhum pagamento será cobrado.</p>
+          <p>Dados de teste: 4242 4242 4242 4242 | 12/25 | 123</p>
+        </div>
+
+        <button type="submit" class="btn-pagar">💰 Pagar Agora</button>
+        <a href="index.html" class="link-voltar">← Voltar</a>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script src="checkout.js"></script>
+<script>
+  // Carregar informações do cliente
+  window.addEventListener('load', () => {
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    if (!usuario) {
+      alert("Você precisa estar logado!");
+      window.location.href = "login.html";
+      return;
+    }
+
+    document.getElementById("nomeCliente").value = usuario.nome;
+    document.getElementById("emailCliente").value = usuario.email;
+
+    // Carregar resumo do pedido
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const listaPedido = document.getElementById("listaPedido");
+    let total = 0;
+
+    carrinho.forEach(item => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span>${item.nome}</span>
+        <span>${item.qtd}x</span>
+        <span>R$ ${(item.preco * item.qtd).toFixed(2).replace(".", ",")}</span>
+      `;
+      listaPedido.appendChild(li);
+      total += item.preco * item.qtd;
+    });
+
+    document.getElementById("totalPedido").textContent = total.toFixed(2).replace(".", ",");
+  });
+
+  // Submeter formulário
+  document.getElementById("formCheckout").addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await inicializarCheckout();
+  });
+</script>
+
+</body>
+</html>
