@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎮 Iuridos Games - Loja de Jogos Online
 
 Plataforma completa de e-commerce para venda de jogos digitais com autenticação segura, carrinho de compras e integração de pagamentos.
